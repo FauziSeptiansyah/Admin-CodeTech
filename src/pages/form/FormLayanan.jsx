@@ -135,7 +135,7 @@ export const FormLayanan = ({ id, modalRef }) => {
         <label className="text-sm font-medium text-gray-700">Banner</label>
         <Input
           type="file"
-          name="banner"
+          name="icon"
           onChange={handleChange}
           className="mt-2 w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200"
         />

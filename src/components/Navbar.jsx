@@ -59,7 +59,7 @@ export const Navbar = ({ onToggleSidebar }) => {
             {/* Desktop view: avatar + nama */}
             <div className="hidden md:flex items-center space-x-3">
               <img
-                src={data?.data?.profile}
+                src={`${import.meta.env.VITE_IMG + data?.data?.profile}`}
                 className="w-9 h-9 rounded-full flex items-center justify-center"
                 alt=""
               />
@@ -76,7 +76,7 @@ export const Navbar = ({ onToggleSidebar }) => {
             <li className="px-4 py-2 border-b">
               <div className="flex items-center space-x-3">
                 <img
-                  src={data?.data?.profile}
+                  src={`${import.meta.env.VITE_IMG + data?.data?.profile}`}
                   className="w-9 h-9 rounded-full flex items-center justify-center"
                   alt=""
                 />
