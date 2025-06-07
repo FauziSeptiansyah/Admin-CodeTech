@@ -9,6 +9,7 @@ import { ListPages } from "../pages/ListPages";
 import { Profil } from "../pages/Profil";
 import { Keunggulan } from "../pages/Keunggulan";
 import { Portfolio } from "../pages/Portofolio";
+import { Layanan } from "../pages/Layanan";
 import { CategoryBlog } from "../pages/CategoryBlog";
 import { Article } from "../pages/Article";
 import { CategoryFaq } from "../pages/CategoryFaq";
@@ -21,6 +22,7 @@ import { FormPage } from "../pages/form/FormPage";
 import { FormProfil } from "../pages/form/FormProfil";
 import { FormKeunggulan } from "../pages/form/FormKeunggulan";
 import { FormPortofolio } from "../pages/form/FormPortofolio";
+import { FormLayanan } from "../pages/form/FormLayanan";
 import { FormCategoryBlog } from "../pages/form/FormCategoryBlog";
 import { FormArticle } from "../pages/form/FormArticle";
 import { FormCategoryFaq } from "../pages/form/FormCategoryFaq";
@@ -41,6 +43,7 @@ export default function index() {
           <Route path="/profil" element={<Profil />} />
           <Route path="/keunggulan" element={<Keunggulan />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/layanan" element={<Layanan />} />
           <Route path="/kategori-blog" element={<CategoryBlog />} />
           <Route path="/artikel" element={<Article />} />
           <Route path="/kategori-faq" element={<CategoryFaq />} />
@@ -59,6 +62,8 @@ export default function index() {
           <Route path="/form-keunggulan/:id" element={<FormKeunggulan />} />
           <Route path="/form-portofolio" element={<FormPortofolio />} />
           <Route path="/form-portofolio/:id" element={<FormPortofolio />} />
+          <Route path="/form-layanan" element={<FormLayanan />} />
+          <Route path="/form-layanan/:id" element={<FormLayanan />} />
           <Route path="/form-kategori-blog" element={<FormCategoryBlog />} />
           <Route path="/form-kategori-blog/:id" element={<FormCategoryBlog />} />
           <Route path="/form-article" element={<FormArticle />} />

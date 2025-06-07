@@ -7,7 +7,6 @@ import toast, { Toaster } from "react-hot-toast";
 import loginImage from "../../assets/hero.png";
 
 export const Login = () => {
-
   const api = import.meta.env.VITE_API;
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -15,16 +14,14 @@ export const Login = () => {
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
- const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${api}/login`, formData, 
-      {
+      const response = await axios.post(`${api}/login`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
-      }
-      );
+      });
       localStorage.setItem("token", response.data.token);
 
       toast.custom((t) => (
@@ -62,7 +59,7 @@ export const Login = () => {
         </div>
       ));
 
-      setTimeout(() => {  
+      setTimeout(() => {
         navigate("/dashboard");
       }, 2000);
     } catch (error) {
@@ -114,17 +111,19 @@ export const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex">
-      <Toaster/>
+    <div className="min-h-screen flex flex-col md:flex-row">
+      <Toaster />
 
-      {/* Left - Form */}
-      <div className="w-full md:w-1/2 flex items-center justify-center px-6 md:px-16 py-14 bg-white">
+      {/* Left - Form Section */}
+      <div className="flex flex-1 items-center justify-center bg-white px-6 md:px-16 py-14">
         <div className="w-full max-w-md space-y-6">
           <div className="text-center">
-            <h1 className="text-3xl font-semibold text-gray-800">
-              Welcome Back
+            <h1 className="text-2xl font-semibold text-gray-800">
+              CodeTech Login
             </h1>
-            <p className="text-sm text-gray-500 mt-1">Login to your account</p>
+            <p className="text-sm text-gray-500 mt-1">
+              Silahkan login untuk melanjutkan
+            </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -140,7 +139,7 @@ export const Login = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Enter your username"
+                placeholder="Enter your email"
                 className="w-full px-4 py-2 text-sm text-gray-700 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none"
                 required
               />
@@ -177,18 +176,19 @@ export const Login = () => {
         </div>
       </div>
 
-      {/* Right - Image with overlay */}
+      {/* Right - Image (hanya tampil di md ke atas) */}
       <div className="hidden md:flex w-1/2 relative">
         <img
           src={loginImage}
           alt="Login visual"
           className="object-cover w-full h-full"
         />
-        <div className="absolute inset-0 flex items-center justify-center px-10 text-white">
+        <div className="absolute inset-0 flex items-center justify-center px-10 text-white bg-opacity-40">
           <div className="text-center max-w-md">
             <div className="text-5xl font-bold mb-4 leading-none">“</div>
             <p className="text-lg font-light italic">
-              “The best way to predict the future is to create it”
+              "Setiap baris kode, setiap desain, adalah bagian dari perubahan.
+              Ayo mulai hari ini dengan semangat!"
             </p>
             <p className="mt-4 text-sm">— CodeTech</p>
           </div>

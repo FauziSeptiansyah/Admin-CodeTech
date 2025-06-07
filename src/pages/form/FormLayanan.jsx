@@ -6,19 +6,22 @@ import { Button } from "../../components/Button";
 import { ModalWrapper } from "../../components/ModalWrapper";
 import toast from "react-hot-toast";
 
-export const FormCategoryFaq = ({ id, modalRef }) => {
+export const FormLayanan = ({ id, modalRef }) => {
   const api = import.meta.env.VITE_API;
   const token = localStorage.getItem("token");
 
-  const { data: detail } = FetchData({ url: `${api}/admin/category-faqs`, token });
+  const { data: detail } = FetchData({ url: `${api}/admin/products`, token });
 
   const findData = detail?.data.find((item) => item.id == id);
 
   const [oldIcon, setOldIcon] = useState(null);
 
   const [formData, setFormData] = useState({
-    category: "",
+    title: "",
     description: "",
+    price : "",
+    discount : "",
+    type: "",
     icon: null,
   });
 
@@ -26,8 +29,11 @@ export const FormCategoryFaq = ({ id, modalRef }) => {
     if (findData) {
       setFormData((prev) => ({
         ...prev,
-        category: findData.category || "",
+        title: findData.title || "",
         description: findData.description || "",
+        price: findData.price || "",
+        discount: findData.discount || "",
+        type: findData.type || "",
         icon: null,
       }));
       setOldIcon(findData.icon);
@@ -52,7 +58,7 @@ export const FormCategoryFaq = ({ id, modalRef }) => {
     });
 
     try {
-      const url = id ? `${api}/admin/category-faqs/${id}` : `${api}/admin/category-faqs`;
+      const url = id ? `${api}/admin/products/${id}` : `${api}/admin/products`;
       const method = id ? "put" : "post";
 
       await axios({
@@ -74,18 +80,18 @@ export const FormCategoryFaq = ({ id, modalRef }) => {
   };
 
   return (
-    <ModalWrapper title={`${id ? "Edit" : "Tambah"} kategori`} modalRef={modalRef}>
+    <ModalWrapper title={`${id ? "Edit" : "Tambah"} Layanan`} modalRef={modalRef}>
       <form
         onSubmit={handleSubmit}
         encType="multipart/form-data"
         className="space-y-4"
       >
-        <label className="text-sm font-medium text-gray-700">Category</label>
+        <label className="text-sm font-medium text-gray-700">Tittle</label>
         <Input
           type="text"
-          name="category"
+          name="title"
           onChange={handleChange}
-          value={formData.category}
+          value={formData.title}
           className="mt-2 w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700 transition"
         />
 
@@ -99,16 +105,43 @@ export const FormCategoryFaq = ({ id, modalRef }) => {
           className="mt-2 w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700 transition"
         />
 
-        <label className="text-sm font-medium text-gray-700">Icon</label>
+        <label className="text-sm font-medium text-gray-700">Price</label>
+        <Input
+          type="text"
+          name="price"
+          onChange={handleChange}
+          value={formData.price}
+          className="mt-2 w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700 transition"
+        />
+
+        <label className="text-sm font-medium text-gray-700">Discount</label>
+        <Input
+          type="text"
+          name="discount"
+          onChange={handleChange}
+          value={formData.discount}
+          className="mt-2 w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700 transition"
+        />
+
+        <label className="text-sm font-medium text-gray-700">Type</label>
+        <Input
+          type="text"
+          name="type"
+          onChange={handleChange}
+          value={formData.type}
+          className="mt-2 w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700 transition"
+        />
+
+        <label className="text-sm font-medium text-gray-700">Banner</label>
         <Input
           type="file"
-          name="icon"
+          name="banner"
           onChange={handleChange}
           className="mt-2 w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200"
         />
         {oldIcon && (
           <p className="text-xs text-gray-500 mt-1">
-            icon lama: <span className="text-blue-500">{oldIcon}</span>
+            Icon lama: <span className="text-blue-500">{oldIcon}</span>
           </p>
         )}
 

@@ -66,7 +66,7 @@ export const FormCategoryBlog = ({ id, modalRef }) => {
   };
 
   return (
-    <ModalWrapper title={`${id ? "Edit" : "Tambah"} Page`} modalRef={modalRef}>
+    <ModalWrapper title={`${id ? "Edit" : "Tambah"} Kategori`} modalRef={modalRef}>
       <form
         onSubmit={handleSubmit}
         encType="multipart/form-data"

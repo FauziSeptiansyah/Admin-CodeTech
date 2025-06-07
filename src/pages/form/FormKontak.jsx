@@ -74,7 +74,7 @@ export const FormKontak = ({ id, modalRef }) => {
   };
 
   return (
-    <ModalWrapper title={`${id ? "Edit" : "Tambah"} Profil`} modalRef={modalRef}>
+    <ModalWrapper title={`${id ? "Edit" : "Tambah"} Kontak`} modalRef={modalRef}>
       <form
         onSubmit={handleSubmit}
         encType="multipart/form-data"

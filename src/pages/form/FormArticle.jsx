@@ -109,7 +109,7 @@ export const FormArticle = ({ id, modalRef }) => {
 
   return (
     <ModalWrapper
-      title={`${id ? "Edit" : "Tambah"} Article`}
+      title={`${id ? "Edit" : "Tambah"} Artikel`}
       modalRef={modalRef}
     >
       <form
