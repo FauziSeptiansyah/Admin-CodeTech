@@ -4,6 +4,7 @@ import FetchData from "../../hooks/FetchData";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { ModalWrapper } from "../../components/ModalWrapper";
+import { TrixInput } from "../../components/TrixInput";
 import toast from "react-hot-toast";
 
 export const FormLayanan = ({ id, modalRef }) => {
@@ -96,13 +97,12 @@ export const FormLayanan = ({ id, modalRef }) => {
         />
 
         <label className="text-sm font-medium text-gray-700">Description</label>
-        <Input
-          type="text"
-          name="description"
-          onChange={handleChange}
+        <TrixInput
           value={formData.description}
-          placeholder="Biarkan kosong jika tidak ingin mengubah"
-          className="mt-2 w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700 transition"
+          onChange={(html, text) =>
+            setFormData({ ...formData, description: html })
+          }
+          className="w-full"
         />
 
         <label className="text-sm font-medium text-gray-700">Price</label>

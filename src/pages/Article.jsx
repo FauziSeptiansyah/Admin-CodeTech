@@ -97,7 +97,7 @@ export const Article = () => {
                     <td>{index + 1}</td>
 
                     <td>{item.title}</td>
-                    <td>{item.description}</td>
+                    <td dangerouslySetInnerHTML={{ __html: item.description && item.description.slice(0, 150) + "..." }}></td>
                     <td>{item.category}</td>
                     <td>{item.user}</td>
                     <td>

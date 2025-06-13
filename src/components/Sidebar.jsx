@@ -14,11 +14,6 @@ export const Sidebar = () => {
     token: token,
   });
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.reload();
-  };
-
   const sidebarMenu = [
     { id: 1, name: "Dashboard", icon: "ri-dashboard-fill", url: "/dashboard" },
     { id: 2, name: "Users", icon: "ri-user-fill", url: "/users" },
@@ -51,13 +46,6 @@ export const Sidebar = () => {
         { id: 7, name: "Kontak", url: "/kontak" },
       ],
     },
-    {
-      id: 5,
-      name: "Logout",
-      icon: "ri-logout-box-line",
-      isLogout: true,
-      onClick: handleLogout,
-    },
   ];
 
   return (
@@ -66,19 +54,16 @@ export const Sidebar = () => {
         <div key={item.id}>
           {item.section ? (
             <>
-              {/* Button menu utama dengan toggle collapse */}
               <button
                 onClick={() =>
                   setActiveSection(activeSection === item.id ? null : item.id)
                 }
                 className="w-full flex items-center justify-between px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md transition-all"
               >
-                {/* Ikon + Nama Menu */}
                 <span className="flex items-center gap-3">
                   <i className={item.icon}></i>
                   {item.name}
                 </span>
-                {/* Panah dropdown */}
                 <i
                   className={`ri-arrow-${
                     activeSection === item.id ? "down" : "right"
@@ -86,14 +71,12 @@ export const Sidebar = () => {
                 ></i>
               </button>
 
-              {/* Submenu jika aktif */}
               {activeSection === item.id && (
                 <div className="pl-6 mt-1 space-y-1">
                   {item.section.map((sub) => (
                     <div key={sub.id}>
                       {sub.section ? (
                         <>
-                          {/* Tombol submenu dengan submenu dalam */}
                           <button
                             onClick={() =>
                               setActiveSubSection(
@@ -112,7 +95,6 @@ export const Sidebar = () => {
                             ></i>
                           </button>
 
-                          {/* Sub-submenu jika aktif */}
                           {activeSubSection === sub.id && (
                             <div className="pl-4 mt-1 space-y-1">
                               {sub.section.map((deep) => (
@@ -134,7 +116,6 @@ export const Sidebar = () => {
                           )}
                         </>
                       ) : (
-                        // Submenu biasa tanpa sub-submenu
                         <NavLink
                           to={sub.url}
                           className={({ isActive }) =>
@@ -153,14 +134,6 @@ export const Sidebar = () => {
                 </div>
               )}
             </>
-          ) : item.isLogout ? (
-            <button
-              onClick={item.onClick}
-              className="flex items-center gap-3 px-3 py-2 text-red-600 hover:text-red-700 transition-colors"
-            >
-              <i className={item.icon}></i>
-              {item.name}
-            </button>
           ) : (
             <NavLink
               to={item.url}

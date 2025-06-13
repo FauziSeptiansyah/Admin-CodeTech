@@ -10,6 +10,11 @@ export const Navbar = ({ onToggleSidebar }) => {
     token: token,
   });
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -51,7 +56,7 @@ export const Navbar = ({ onToggleSidebar }) => {
           >
             {/* Mobile view: hanya nama */}
             <img
-              src={data?.data?.profile}
+              src={`${import.meta.env.VITE_IMG + data?.data?.profile}`}
               className="md:hidden w-9 h-9 rounded-full flex items-center justify-center"
               alt=""
             />
@@ -73,7 +78,7 @@ export const Navbar = ({ onToggleSidebar }) => {
             tabIndex={0}
             className="dropdown-content z-[60] mt-3 w-56 bg-white rounded-md shadow-lg menu p-2"
           >
-            <li className="px-4 py-2 border-b">
+            <li className="px-auto py-2 border-b">
               <div className="flex items-center space-x-3">
                 <img
                   src={`${import.meta.env.VITE_IMG + data?.data?.profile}`}
@@ -89,6 +94,14 @@ export const Navbar = ({ onToggleSidebar }) => {
                   </p>
                 </div>
               </div>
+            </li>
+            <li>
+              <button
+                onClick={handleLogout}
+                className="text-sm text-start w-full text-red-600 hover:text-red-800 transition"
+              >
+                Logout
+              </button>
             </li>
           </ul>
         </div>

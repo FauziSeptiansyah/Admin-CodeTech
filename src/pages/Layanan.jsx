@@ -138,7 +138,7 @@ export const Layanan = () => {
                     <td>{index + 1}</td>
 
                     <td>{item.title}</td>
-                    <td>{item.description}</td>
+                    <td dangerouslySetInnerHTML={{ __html: item.description }}></td>
                     <td>{item.price}</td>
                     <td>{item.discount}</td>
                     <td>{item.type}</td>
