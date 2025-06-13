@@ -94,10 +94,9 @@ export const ListPages = () => {
                 {data?.data.map((item, index) => (
                   <tr key={item.id}>
                     <td>{index + 1}</td>
-                    
                     <td>{item.title}</td>
                     <td>{item.type}</td>
-                    <td>{item.description}</td>
+                    <td>{item.description.slice(0, 100) + "..."}</td>
                     <td>
                       <img
                         src={`${import.meta.env.VITE_IMG + item.banner}`}

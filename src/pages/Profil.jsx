@@ -97,7 +97,7 @@ export const Profil = () => {
                   <tr key={data.data.id}>
                     <td>1</td>
                     <td>{data.data.title}</td>
-                    <td>{data.data.description}</td>
+                    <td>{item.description.slice(0, 100) + "..."}</td>
                     <td>
                       <img
                         src={`${import.meta.env.VITE_IMG + data.data.image}`}

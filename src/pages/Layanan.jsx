@@ -138,16 +138,26 @@ export const Layanan = () => {
                     <td>{index + 1}</td>
 
                     <td>{item.title}</td>
-                    <td dangerouslySetInnerHTML={{ __html: item.description }}></td>
+                    <td
+                      dangerouslySetInnerHTML={{
+                        __html: item.description.slice(0, 100) + "...",
+                      }}
+                    ></td>
                     <td>{item.price}</td>
                     <td>{item.discount}</td>
                     <td>{item.type}</td>
                     <td>
-                      <img
-                        src={`${import.meta.env.VITE_IMG + item.icon}`}
-                        alt={item.title}
-                        className="w-28 h-20 object-cover rounded-md mx-auto"
-                      />
+                      <td>
+                        {item.icon ? (
+                          <img
+                            src={`${import.meta.env.VITE_IMG + item.icon}`}
+                            alt={item.title}
+                            className="w-28 h-20 object-cover rounded-md mx-auto"
+                          />
+                        ) : (
+                          <span className="text-center block">-</span>
+                        )}
+                      </td>
                     </td>
                     <td className="space-x-2">
                       <button

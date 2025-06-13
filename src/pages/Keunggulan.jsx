@@ -95,7 +95,7 @@ export const Keunggulan = () => {
                     <td>{index + 1}</td>
                     
                     <td>{item.title}</td>
-                    <td>{item.description}</td>
+                    <td>{item.description.slice(0, 100) + "..."}</td>
                     <td>
                       <img
                         src={`${import.meta.env.VITE_IMG + item.icon}`}
