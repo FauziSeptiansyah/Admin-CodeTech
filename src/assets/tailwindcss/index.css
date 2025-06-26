@@ -1,2 +1,25 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+/* CSS untuk <ul> dan <ol> */
+/* Saat menampilkan konten*/
+.trix-content ul,
+.trix-content ol {
+  padding-left: 1.25rem; /* Indentasi */
+  list-style-type: disc; /* Bullet untuk <ul> */
+}
+
+.trix-content ol {
+  list-style-type: decimal; /* Angka untuk <ol> */
+}
+
+/* Saat mengetik di dalam editor */
+trix-editor ul,
+trix-editor ol {
+  padding-left: 1.25rem;
+  list-style-type: disc;
+}
+
+trix-editor ol {
+  list-style-type: decimal;
+}

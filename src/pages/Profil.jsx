@@ -97,7 +97,12 @@ export const Profil = () => {
                   <tr key={data.data.id}>
                     <td>1</td>
                     <td>{data.data.title}</td>
-                    <td>{data.data.description.slice(0, 100) + "..."}</td>
+                    <td
+                      className="trix-content text-gray-700 text-base space-y-4"
+                      dangerouslySetInnerHTML={{
+                        __html: data.data.description.slice(0, 100) + "...",
+                      }}
+                    ></td>
                     <td>
                       <img
                         src={`${import.meta.env.VITE_IMG + data.data.image}`}

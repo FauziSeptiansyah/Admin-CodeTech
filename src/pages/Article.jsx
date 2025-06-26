@@ -97,7 +97,12 @@ export const Article = () => {
                     <td>{index + 1}</td>
 
                     <td>{item.title}</td>
-                    <td dangerouslySetInnerHTML={{ __html: item.description && item.description.slice(0, 150) + "..." }}></td>
+                    <td
+                      className="trix-content text-gray-700 text-base space-y-4"
+                      dangerouslySetInnerHTML={{
+                        __html: item.description.slice(0, 100) + "...",
+                      }}
+                    ></td>
                     <td>{item.category}</td>
                     <td>{item.user}</td>
                     <td>

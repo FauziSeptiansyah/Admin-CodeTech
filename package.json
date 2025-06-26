@@ -18,7 +18,6 @@
     "react-router-dom": "^7.6.1",
     "react-trix": "^0.10.2",
     "remixicon": "^4.6.0",
-    "tailwindcss": "^4.1.7",
     "trix": "^1.3.5"
   },
   "devDependencies": {
@@ -31,6 +30,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "tailwindcss": "^4.1.10",
     "vite": "^6.3.5"
   }
 }
